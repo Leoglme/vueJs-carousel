@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="visible">
     Index: {{index}}
     <slot/>
   </div>
@@ -9,14 +9,13 @@
 export default {
   name: "Slide",
   data() {
-    console.log(this.$parent.index);
     return {
       index: 0
     }
   },
   computed: {
     visible(){
-      return null
+      return this.index === this.$parent.index
     }
   }
 }

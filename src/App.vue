@@ -1,11 +1,13 @@
 <template>
   <Carousel>
-    <h1>toto</h1>
     <Slide>
-       Salut les gens
+       Slide 1
     </Slide>
     <Slide>
-      Aurevoir les gens
+      Slide 2
+    </Slide>
+    <Slide>
+      Slide 3
     </Slide>
   </Carousel>
 </template>
@@ -17,7 +19,7 @@ export default {
   name: 'App',
   components: {
     Carousel, Slide
-  }
+  },
 }
 </script>
 
