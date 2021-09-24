@@ -21,6 +21,12 @@
         mdi-chevron-left
       </v-icon>
     </v-btn>
+    <div class="carousel__pagination">
+      <button
+          v-for="n in slidesCount"
+          :key="n" @click="goTo(n-1)"
+          :class="{active: n-1 === index}"/>
+    </div>
   </div>
 </template>
 
@@ -32,34 +38,43 @@ export default {
       index: 0,
       active: 0,
       slides: [],
-      direction: 'right'
+      direction: null
     }
   },
   mounted() {
     this.slides = this.$children.filter(e => e.$options.name === 'Slide')
     this.slides.forEach((slide, i) => {
-       slide.index = i;
+      slide.index = i;
     })
   },
   computed: {
-    slidesCount(){
+    slidesCount() {
       return this.slides.length
     }
   },
   methods: {
-    next(){
+    next() {
       this.index++;
-      if (this.index >= this.slidesCount){
+      if (this.index >= this.slidesCount) {
         this.index = 0
       }
       this.direction = 'right'
     },
-    prev(){
+    prev() {
       this.index--
-      if (this.index < 0){
+      if (this.index < 0) {
         this.index = this.slidesCount - 1
       }
       this.direction = 'left'
+    },
+    goTo(i){
+
+      if (i > this.index){
+        this.direction = 'right'
+      }else {
+        this.direction = 'left'
+      }
+      this.index = i
     }
   }
 }

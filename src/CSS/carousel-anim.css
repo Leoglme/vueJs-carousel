@@ -1,8 +1,8 @@
 .slide-right-enter-active {
-    animation: slideRightIn 2s;
+    animation: slideRightIn .5s;
 }
 .slide-right-leave-active {
-    animation: slideRightOut 2s;
+    animation: slideRightOut .5s;
     position: absolute;
     top: 0;
     left: 0;
@@ -11,10 +11,10 @@
     width: 100%;
 }
 .slide-left-enter-active {
-    animation: slideLeftIn 2s;
+    animation: slideLeftIn .5s;
 }
 .slide-left-leave-active {
-    animation: slideLeftOut 2s;
+    animation: slideLeftOut .5s;
     position: absolute;
     top: 0;
     left: 0;

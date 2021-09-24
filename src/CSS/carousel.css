@@ -31,3 +31,23 @@
     color: #fff;
     font-size: 32px;
 }
+.carousel__pagination {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.carousel__pagination button {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    opacity: 0.8;
+    border-radius: 10px;
+    margin: 0 4px;
+}
+.carousel__pagination button.active {
+    background-color: #fff;
+}

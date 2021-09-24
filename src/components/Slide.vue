@@ -20,7 +20,11 @@ export default {
       return this.index === this.$parent.index
     },
     transition(){
-      return 'slide-' + this.$parent.direction
+      const direction = this.$parent.direction;
+      if (direction){
+        return 'slide-' + direction
+      }
+      return direction;
     }
   }
 }
