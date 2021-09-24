@@ -31,7 +31,8 @@ export default {
     return {
       index: 0,
       active: 0,
-      slides: []
+      slides: [],
+      direction: 'right'
     }
   },
   mounted() {
@@ -51,12 +52,14 @@ export default {
       if (this.index >= this.slidesCount){
         this.index = 0
       }
+      this.direction = 'right'
     },
     prev(){
       this.index--
       if (this.index < 0){
         this.index = this.slidesCount - 1
       }
+      this.direction = 'left'
     }
   }
 }
