@@ -33,23 +33,26 @@
 <script>
 export default {
   name: "Carousel",
+  props: {
+    slides: {type: Number, default: 0}
+  },
   data() {
     return {
       index: 0,
       active: 0,
-      slides: [],
-      direction: null
+      direction: "right"
     }
   },
-  mounted() {
-    this.slides = this.$children.filter(e => e.$options.name === 'Slide')
-    this.slides.forEach((slide, i) => {
-      slide.index = i;
-    })
+  watch: {
+    slides(){
+      if (this.index >= this.slidesCount) {
+        this.index = this.slidesCount - 1
+      }
+    }
   },
   computed: {
     slidesCount() {
-      return this.slides.length
+      return this.slides
     }
   },
   methods: {
@@ -68,12 +71,7 @@ export default {
       this.direction = 'left'
     },
     goTo(i){
-
-      if (i > this.index){
-        this.direction = 'right'
-      }else {
-        this.direction = 'left'
-      }
+      this.direction = i > this.index ? 'right' : 'left';
       this.index = i
     }
   }
