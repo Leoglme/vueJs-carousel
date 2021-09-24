@@ -1,10 +1,27 @@
 <template>
   <div class="carousel">
     <slot/>
-    <button class="carousel__nav carousel__next" @click.prevent="prev">Précédent</button>
-    <button class="carousel__nav carousel__next" @click.prevent="next">Suivant</button>
+    <v-btn
+        class="carousel__nav carousel__next"
+        fab
+        small
+        @click.prevent="next"
+        color="primary">
+      <v-icon dark>
+        mdi-chevron-right
+      </v-icon>
+    </v-btn>
+    <v-btn
+        class="carousel__nav carousel__prev"
+        fab
+        small
+        @click.prevent="prev"
+        color="primary">
+      <v-icon dark>
+        mdi-chevron-left
+      </v-icon>
+    </v-btn>
   </div>
-
 </template>
 
 <script>
@@ -13,11 +30,12 @@ export default {
   data() {
     return {
       index: 0,
+      active: 0,
       slides: []
     }
   },
   mounted() {
-    this.slides = this.$children
+    this.slides = this.$children.filter(e => e.$options.name === 'Slide')
     this.slides.forEach((slide, i) => {
        slide.index = i;
     })

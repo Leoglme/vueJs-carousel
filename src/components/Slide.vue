@@ -1,8 +1,10 @@
 <template>
-  <div v-show="visible">
-    Index: {{index}}
-    <slot/>
-  </div>
+  <transition name="slide-right">
+    <div v-show="visible">
+      Index: {{index}}
+      <slot/>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -21,6 +23,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style src="../CSS/carousel-anim.css">
 
 </style>

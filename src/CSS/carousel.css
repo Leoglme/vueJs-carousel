@@ -1,0 +1,33 @@
+.carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel__nav {
+    position: absolute;
+    margin-top: -14px;
+    top: 50%;
+    left: 10px;
+}
+
+.carousel__next {
+    right: 10px;
+    left: auto !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.slide__text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    color: #fff;
+    font-size: 32px;
+}
